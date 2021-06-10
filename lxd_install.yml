@@ -1,0 +1,28 @@
+---
+# this playbook will install lxd in jenkins nodes by using snap. 
+# usages: ansible-playbook -i inventory/hosts lxd.yml
+- hosts: jenkins
+  become: yes
+  gather_facts: yes
+  ignore_errors: yes
+
+  tasks:
+  - name: Remove some pre install packages
+    apt:
+      name: [ 'lxd', 'lxd-client' ]
+      purge: yes
+      state: absent
+
+  - name: Install snapd and zfs in Ubuntu
+    apt:
+      name: [ 'snapd', 'zfsutils-linux' ]
+      state: latest
+      update_cache: yes
+    when: ansible_distribution == "Ubuntu"
+
+  - name: Insall lxd by snapd in Ubuntu
+    snap:
+      name: lxd
+      state: present
+    when: ansible_distribution == "Ubuntu"
+
