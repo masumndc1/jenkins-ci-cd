@@ -1,4 +1,6 @@
 ---
+# this playbook will install, enabled and keep 
+# jenkins, java run-time environment in jenkins nodes.
 - hosts: jenkins
   gather_facts: yes
   become: yes
