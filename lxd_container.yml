@@ -1,0 +1,35 @@
+---
+# this script will install lxd container
+- hosts: jenkins
+  become: yes
+  gather_facts: yes
+  ignore_errors: true
+  
+  tasks:
+  - name: Create a started node1-python-ubuntu18 container
+    lxd_container:
+      name: node1-python-ubuntu18
+      state: started
+      source:
+        type: image
+        mode: pull
+        server: https://images.linuxcontainers.org
+        protocol: lxd
+        alias: ubuntu/bionic/amd64
+      profiles: ["default"]
+      wait_for_ipv4_addresses: true
+      timeout: 600
+
+  - name: Create a started node2-python-ubuntu18 container
+    lxd_container:
+      name: node2-python-ubuntu18
+      state: started
+      source:
+        type: image
+        mode: pull
+        server: https://images.linuxcontainers.org
+        protocol: lxd
+        alias: ubuntu/bionic/amd64
+      profiles: ["default"]
+      wait_for_ipv4_addresses: true
+      timeout: 600
