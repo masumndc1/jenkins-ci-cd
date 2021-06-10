@@ -1,0 +1,28 @@
+---
+- hosts: jenkins
+  gather_facts: yes
+  become: yes
+
+  
+  tasks: 
+  - name: Add gpg key of jenkins
+    ansible.builtin.apt_key:
+      url: https://pkg.jenkins.io/debian-stable/jenkins.io.key
+      state: present
+
+  - name: Add apt source list
+    ansible.builtin.apt_repository:
+      repo: deb https://pkg.jenkins.io/debian-stable binary/
+      state: present
+    
+  - name: Install jenkins
+    apt:
+      name: ['jenkins','openjdk-8-jdk']
+      state: latest
+      update_cache: yes
+
+  - name: Enable jenkins service 
+    ansible.builtin.service:
+      name: jenkins
+      enabled: yes
+      state: started
