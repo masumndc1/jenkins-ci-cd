@@ -9,20 +9,24 @@
     ansible.builtin.apt_key:
       url: https://pkg.jenkins.io/debian-stable/jenkins.io.key
       state: present
+    when: ansible_distribution == 'Ubuntu'
 
   - name: Add apt source list
     ansible.builtin.apt_repository:
       repo: deb https://pkg.jenkins.io/debian-stable binary/
       state: present
+    when: ansible_distribution == 'Ubuntu'
     
   - name: Install jenkins
     apt:
       name: ['jenkins','openjdk-8-jdk']
       state: latest
       update_cache: yes
+    when: ansible_distribution == 'Ubuntu'
 
   - name: Enable jenkins service 
     ansible.builtin.service:
       name: jenkins
       enabled: yes
       state: started
+    when: ansible_distribution == 'Ubuntu'
