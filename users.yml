@@ -1,0 +1,23 @@
+---
+- hosts: jenkins
+  become: yes
+  ignore_errors: true
+
+  tasks:
+  - name: Add public key in authorized_key file
+    ansible.posix.authorized_key:
+      user: "{{ username }}" 
+      key: "{{ user_pubkey }}"
+
+  - name: Installing sudo package
+    apt:
+      name: ['sudo']
+      state: latest
+      update_cache: yes 
+    when: ansible_distribution == "Ubuntu"
+
+  - name: Granting user sudo rights
+    ansible.builtin.lineinfile:
+      path: /etc/sudoers.d/10_{{ username }}
+      line: "{{ username }} ALL=(ALL) NOPASSWD: ALL"
+      create: yes
