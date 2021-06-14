@@ -1,2 +1,7 @@
 [jenkin]
 jenkins
+
+[jenkin:vars]
+ansible_user = masum
+
+
