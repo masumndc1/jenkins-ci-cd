@@ -15,5 +15,11 @@
 ## Bootstrap lxd
 1. Run "lxd init" and complete steps
 
+## Install packer in jenkins host
+1. Run "ansible-playbook -i inventory/hosts packer_install.yml"
+
+## Download packer-template from git in jenkins host
+1. Run "git clone https://github.com/masumndc1/packer-template.git"
+
 ## Download lxd image and run container
 1. Run "ansible-playbook -i inventory/hosts lxd_container.yml"
