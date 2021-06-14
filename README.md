@@ -1,5 +1,11 @@
 # jenkins-ci-cd
 
+## Edit host_vars/yml.files and set variables.
+
+## Install sudo, create user and place user authkey and give that
+## user sudo right.
+1. Run "ansible-playbook -i inventory/hosts user.yml --ask-become-pass"
+
 ## Install jenkins. Keep jenkins service enabled and keep running.
 1. Run "ansible-playbook -i inventory/hosts jenkins_install.yml"
 
