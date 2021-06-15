@@ -27,3 +27,7 @@
 ## Download packer-template from git in jenkins host and follow steps.
 1. Run "git clone https://github.com/masumndc1/packer-template.git"
 
+## Initial jenkins
+1. Browse http://<jenkins_server_ip>:8080 and follow steps.
+![Jenkins_initialization](/pics/Jenkins_initialiazion.png)
+
