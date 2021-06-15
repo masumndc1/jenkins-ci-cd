@@ -6,6 +6,12 @@
 ## user sudo right.
 1. Run "ansible-playbook -i inventory/hosts user.yml --ask-become-pass"
 
+## Install some common packages
+1. Run "ansible-playbook -i inventory/hosts common_packages.yml"
+
+## Install ansible on node.
+1. Run "scp ansible_playbook.py user@host:/tmp"
+
 ## Install jenkins. Keep jenkins service enabled and keep running.
 1. Run "ansible-playbook -i inventory/hosts jenkins_install.yml"
 
