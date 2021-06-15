@@ -29,5 +29,7 @@
 
 ## Initial jenkins
 1. Browse http://<jenkins_server_ip>:8080 and follow steps.
+Initial password will be in here "/var/lib/jenkins/secrets/initialAdminPassword"
+
 ![Jenkins_initialization](/pics/Jenkins_initialiazion.png)
 
