@@ -1,0 +1,13 @@
+---
+# this playbook will install some common packages
+- hosts: jenkins
+  gather_facts: yes
+  become: yes
+
+  tasks: 
+  - name: Install some common packages
+    apt:
+      name: ['git','htop']
+      state: latest
+      update_cache: yes
+    when: ansible_distribution == 'Ubuntu'
