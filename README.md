@@ -27,5 +27,3 @@
 ## Download packer-template from git in jenkins host and follow steps.
 1. Run "git clone https://github.com/masumndc1/packer-template.git"
 
-## Download lxd image and run container
-1. Run "ansible-playbook -i inventory/hosts lxd_container.yml"
