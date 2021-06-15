@@ -63,5 +63,3 @@ def ansible_install():
     
 ansible_install()
 
-print("Ansible installation done")
-
