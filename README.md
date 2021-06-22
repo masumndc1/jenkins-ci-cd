@@ -33,3 +33,5 @@ Initial password will be in here "/var/lib/jenkins/secrets/initialAdminPassword"
 
 ![Jenkins_initialization](/pics/Jenkins_initialiazion.png)
 
+## Note:
+You might need to install git and openjdk-8-jdk on lxd nodes.
