@@ -1,7 +1,34 @@
+[all]
+jenkin
+salt-master
+minions
+puppet-master
+puppet-nodes
+
+[salt-master]
+salt
+
+[minions]
+sa-dv1
+sa-dv2
+sa-pr1
+sa-pr2
+sa-pr3
+sa-pr4
+sa-pr5
+
+[puppet-master]
+puppet
+
+[puppet-nodes]
+pu-dv1
+pu-dv2
+pu-pr1
+pu-pr2
+pu-pr3
+
 [jenkin]
 jenkins
 
-[jenkin:vars]
+[all:vars]
 ansible_user = masum
-
-
